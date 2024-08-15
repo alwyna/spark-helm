@@ -5,7 +5,6 @@
       - [Kubectl Configuration](#kubectl-configuration)
       - [What Port](#what-port)
       - [Sidecars, Ambassadors and Multiple Service-Pod Patterns](#sidecars-ambassadors-and-multiple-service-pod-patterns)
-    - [CLI Tools](#cli-tools)
   - [Preparations](#preparations)
       - [Must have dns configured.](#must-have-dns-configured)
       - [Does docker have enough room?](#does-docker-have-enough-room)
@@ -73,10 +72,6 @@ There are 3 major types of "ports" in kube config:
 * [Sidecar](https://kubernetes.io/docs/concepts/workloads/pods/sidecar-containers/#pod-sidecar-containers): a special case of `initContainer` that can be used to on a shared volume to clean up logs, or do other clean up work, not chronologically tied to the main service.
 * Ambassador: A service to do some of the proxying but not the load balancing as that is still best left to the ingress controller. However an ambassador can manage things like retry, timeout policies, validate tokens, etc. Think AOP with REST.
 * Multiple Services/Pod: Not recommended due to scalability issue and the liveliness/readiness probe that may not be able to ascertain the status of each container [see](https://www.reddit.com/r/kubernetes/comments/12cdxm1/is_it_a_bad_idea_to_run_a_pod_that_contain/) discussion on reddit.
-
-### CLI Tools
-
-Download your cloud vendor tool eg. eks or aks
 
 ## Preparations
 
@@ -246,7 +241,7 @@ kubectl apply -f .
 
 **NOTE** The `http` and the kube proxy address (see: Starting Minikube)
 
-**NOTE** When this article was written, spark 3.4.3 was used, and this si reflected in the jar file
+**NOTE** When this article was written, spark 3.4.3 was used, and this is reflected in the jar file
 
 **NOTE** The the path to the jar is a path in the container
 
